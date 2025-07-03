@@ -133,10 +133,14 @@ function videoEmbed(md: MarkdownIt, _options: VideoFullOptions): ParserInline.Ru
             token.level = theState.level;
         }
 
-        if (service === 'url') {
-            theState.pos = theState.src.indexOf(')', theState.pos) + 1;
-        } else {
-            theState.pos += theState.src.indexOf(')', theState.pos);
+        theState.pos = theState.src.indexOf(')', theState.pos) + 1;
+
+        while (theState.pos < theState.src.length) {
+            const ch = theState.src.charCodeAt(theState.pos);
+            if (ch !== 0x20 && ch !== 0x0a) {
+                break;
+            }
+            theState.pos++;
         }
 
         if (csp) {

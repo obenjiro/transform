@@ -112,7 +112,7 @@ describe('Anchors', () => {
             After include
         `,
                 {enableMarkdownAttrs: true},
-            ), // TODO: includes requires markdown-it-attrs plugin for find block with id=hash
+            ),
         ).toMatchSnapshot();
     });
 

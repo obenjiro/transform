@@ -102,6 +102,7 @@ function collectRecursive(result: string, options: IncludeCollectOpts) {
 }
 
 function collect(input: string, options: IncludeCollectOpts) {
+    includesPaths.length = 0;
     const shouldWriteAppendix = !options.appendix;
 
     options.appendix = options.appendix ?? new Map();
